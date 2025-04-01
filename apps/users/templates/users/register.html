@@ -47,7 +47,6 @@
 </style>
 
 <div class="container">
-    <h2>Register</h2>
 
     {% if form.errors %}
         <ul class="error-messages">
@@ -58,34 +57,51 @@
             {% endfor %}
         </ul>
     {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-        <label for="id_username">Username:</label>
-        {{ form.username }}
-
-        <label for="id_first_name">First Name:</label>
-        {{ form.first_name }}
-
-        <label for="id_last_name">Last Name:</label>
-        {{ form.last_name }}
-
-        <label for="id_email">Email:</label>
-        {{ form.email }}
-
-        <label for="id_password1">Password:</label>
-        {{ form.password1 }}
-
-        <label for="id_password2">Confirm Password:</label>
-        {{ form.password2 }}
-
-        <button type="submit">Register</button>
-    </form>
-
-    <a href="{% url 'users:login' %}">
-        <button>Go to Login</button>
-    </a>
-</div>
+    <div class="login-container">
+        <div>
+            <h1>Create an Account</h1>
+            <p>Join us and streamline your workflow.</p>
+        </div>    
+    
+        <form method="post" class="login-custom-form">
+            {% csrf_token %}
+    
+            <div class="login-form-input-container">
+                <label for="id_username">Username:</label>
+                {{ form.username }}
+            </div>
+    
+            <!-- <div class="login-form-input-container">
+                <label for="id_first_name">First Name:</label>
+                {{ form.first_name }}
+            </div>
+    
+            <div class="login-form-input-container">
+                <label for="id_last_name">Last Name:</label>
+                {{ form.last_name }}
+            </div> -->
+    
+            <div class="login-form-input-container">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+    
+            <div class="login-form-input-container">
+                <label for="id_password1">Password:</label>
+                {{ form.password1 }}
+            </div>
+    
+            <div class="login-form-input-container">
+                <label for="id_password2">Confirm Password:</label>
+                {{ form.password2 }}
+            </div>
+    
+            <button type="submit">Register</button>
+        </form>
+    
+        <a href="{% url 'users:login' %}" class="forgot-pass">Already have an account? Login</a>
+    </div>
+    
 
 <!-- Success Modal -->
 <div id="successModal" class="modal">
